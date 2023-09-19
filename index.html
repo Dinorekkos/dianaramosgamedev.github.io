@@ -20,10 +20,10 @@
   </head>
   <body>
     <canvas id="unity-canvas"></canvas>
-    <script src="Build/Build car.loader.js"></script>
+    <script src="Build/Build pins.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+        // Estilo para dispositivos móviles: llenar toda el área del navegador con el canvas del juego:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
@@ -32,21 +32,20 @@
         var canvas = document.querySelector("#unity-canvas");
         canvas.style.width = "100%";
         canvas.style.height = "100%";
-        canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/Build car.data",
-        frameworkUrl: "Build/Build car.framework.js",
-        codeUrl: "Build/Build car.wasm",
+        dataUrl: "Build/Build pins.data",
+        frameworkUrl: "Build/Build pins.framework.js",
+        codeUrl: "Build/Build pins.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "My project",
         productVersion: "0.1",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+        // matchWebGLToCanvasSize: false, // Descomenta esto para controlar por separado el tamaño de renderizado de WebGL y el tamaño del elemento DOM.
+        // devicePixelRatio: 1, // Descomenta esto para anular el renderizado de baja DPI en pantallas de alta DPI.
       });
     </script>
   </body>
