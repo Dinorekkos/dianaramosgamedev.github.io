@@ -3,27 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Portfolio Diana Ramos</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      #unity-canvas {
-        width: 100vw;
-        height: 100vh;
-        background: #828080;
-      }
-    </style>
+    <title>Unity WebGL Player | My project</title>
   </head>
-  <body>
-    <canvas id="unity-canvas"></canvas>
-    <script src="Build/Build pins.loader.js"></script>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1920 height=1080 style="width: 1920px; height: 1080px; background: #828080"></canvas>
+    <script src="Build/BuildPinsMobile.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Estilo para dispositivos móviles: llenar toda el área del navegador con el canvas del juego:
+        // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
@@ -32,20 +19,21 @@
         var canvas = document.querySelector("#unity-canvas");
         canvas.style.width = "100%";
         canvas.style.height = "100%";
+        canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/Build pins.data",
-        frameworkUrl: "Build/Build pins.framework.js",
-        codeUrl: "Build/Build pins.wasm",
+        dataUrl: "Build/BuildPinsMobile.data",
+        frameworkUrl: "Build/BuildPinsMobile.framework.js",
+        codeUrl: "Build/BuildPinsMobile.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "My project",
         productVersion: "0.1",
-        // matchWebGLToCanvasSize: false, // Descomenta esto para controlar por separado el tamaño de renderizado de WebGL y el tamaño del elemento DOM.
-        // devicePixelRatio: 1, // Descomenta esto para anular el renderizado de baja DPI en pantallas de alta DPI.
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
   </body>
